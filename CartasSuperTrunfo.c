@@ -2,8 +2,6 @@
 
 // Desafio Super Trunfo - Países
 // Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
 
 // objeto para armazenar os dados da carta
 typedef struct {
@@ -16,8 +14,10 @@ typedef struct {
     float pib;
     float densidadePopulacional;
     float pibPerCapita;
+    float superPoder;
 } CartaCidade;
 
+//criar a carta
 CartaCidade CriarCarta() {
     CartaCidade carta;
     printf("Digite o código da carta: ");
@@ -39,9 +39,19 @@ CartaCidade CriarCarta() {
     carta.densidadePopulacional = (float)carta.populacao / carta.area;
     carta.pibPerCapita = carta.pib / carta.populacao;
 
+    //calcular superpoder
+    carta.superPoder = 
+        carta.populacao + 
+        carta.area + 
+        carta.pib + 
+        carta.pontosTuristicos +
+        carta.pibPerCapita +
+        (1 / carta.densidadePopulacional);
+
     return carta;
 }
 
+//exibir os dados da carta
 void ExibirCarta(CartaCidade carta) {
     printf("Código: %s\n", carta.codigo);
     printf("Estado: %c\n", carta.estado);
@@ -54,19 +64,95 @@ void ExibirCarta(CartaCidade carta) {
     printf("PIB Per Capita: %.2f\n", carta.pibPerCapita);
 }
 
+//função para retornar o maior valor
+char MaiorValor(int valor1, int valor2) {
+    if(valor1 > valor2) {
+        return "Carta 1 venceu (1)\n";
+    } else if(valor1 < valor2) {
+        return "Carta 2 venceu (0)\n";
+    } else {
+        return "Empate\n";
+    }
+}
+//função para retornar o menor valor
+char MenorValor(int valor1, int valor2) {
+    if(valor1 < valor2) {
+        return "Carta 1 venceu (1)\n";
+    } else if(valor1 > valor2) {
+        return "Carta 2 venceu (0)\n";
+    } else {
+        return "Empate\n";
+    }
+}
+
+//comparação das cartas
+void CompararCartas(CartaCidade carta1, CartaCidade carta2) {
+
+    printf("População: ");
+    if(carta1.populacao > carta2.populacao) {
+        printf("Carta 1 venceu (1)\n");
+    } else if(carta1.populacao < carta2.populacao) {
+        printf("Carta 2 venceu (0)\n");
+    } else {
+        printf("Empate\n");
+    }
+    printf("Área: ");
+    if(carta1.area > carta2.area) {
+        printf("Carta 1 venceu (1)\n");
+    } else if(carta1.area < carta2.area) {
+        printf("Carta 2 venceu (0)\n");
+    } else {
+        printf("Empate\n");
+    }
+    printf("PIB: ");
+    if(carta1.pib > carta2.pib) {
+        printf("Carta 1 venceu (1)\n");
+    } else if(carta1.pib < carta2.pib) {
+        printf("Carta 2 venceu (0)\n");
+    } else {
+        printf("Empate\n");
+    }
+    printf("Pontos Turísticos: ");
+    if(carta1.pontosTuristicos > carta2.pontosTuristicos) {
+        printf("Carta 1 venceu (1)\n");
+    } else if(carta1.pontosTuristicos < carta2.pontosTuristicos) {
+        printf("Carta 2 venceu (0)\n");
+    } else {
+        printf("Empate\n");
+    }
+    printf("Densidade Populacional: ");
+    if(carta1.densidadePopulacional < carta2.densidadePopulacional) {
+        printf("Carta 1 venceu (1)\n");
+    } else if(carta1.densidadePopulacional > carta2.densidadePopulacional) {
+        printf("Carta 2 venceu (0)\n");
+    } else {
+        printf("Empate\n");
+    }
+    printf("PIB Per Capita: ");
+    if(carta1.pibPerCapita > carta2.pibPerCapita) {
+        printf("Carta 1 venceu (1)\n");
+    } else if(carta1.pibPerCapita < carta2.pibPerCapita) {
+        printf("Carta 2 venceu (0)\n");
+    } else {
+        printf("Empate\n");
+    }
+    printf("Super Poder: ");
+    if(carta1.superPoder > carta2.superPoder) {
+        printf("Carta 1 venceu (1)\n");
+    } else if(carta1.superPoder < carta2.superPoder) {
+        printf("Carta 2 venceu (0)\n");
+    } else {
+        printf("Empate\n");
+    }
+}
+
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
     
     //declaração de variáveis
     CartaCidade carta1;
     CartaCidade carta2;
 
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-
-    //atribuir variáveis
+    //atribuir variáveis cartas
     printf("Vamos agora cadastrar a carta 1:\n");
     carta1 = CriarCarta();
     printf("=============================\n");
@@ -75,10 +161,6 @@ int main() {
     printf("=============================\n");
     printf("Cadastro realizado com sucesso!\n");
     printf("=============================\n");
-
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
     // Exibir os dados da carta 1
     printf("Dados da Carta 1:\n");
@@ -89,6 +171,11 @@ int main() {
     ExibirCarta(carta2);
     printf("=============================\n");
     
+    // Comparar as cartas
+    printf("\nComparativo das cartas:\n");
+    CompararCartas(carta1, carta2);
+    printf("\n=============================\n");
+
     printf("Programa encerrado.\n");
 
     return 0;
