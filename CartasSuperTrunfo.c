@@ -14,6 +14,8 @@ typedef struct {
     int pontosTuristicos;
     float area;
     float pib;
+    float densidadePopulacional;
+    float pibPerCapita;
 } CartaCidade;
 
 int main() {
@@ -31,7 +33,7 @@ int main() {
     //atribuir variáveis
     printf("Vamos agora cadastrar a carta 1:\n");
 
-    printf("Digite o código da cidade: ");
+    printf("Digite o código da carta: ");
     scanf("%s", carta1.codigo);
     printf("Digite o estado da cidade: ");
     scanf(" %c", &carta1.estado);
@@ -45,11 +47,15 @@ int main() {
     scanf("%f", &carta1.pib);
     printf("Digite o número de pontos turísticos da cidade: ");
     scanf("%d", &carta1.pontosTuristicos);
+    //calcular densidade populacional e pib per capita
+    carta1.densidadePopulacional = (float)carta1.populacao / carta1.area;
+    carta1.pibPerCapita = carta1.pib / carta1.populacao;
+
 
     printf("=============================\n");
     printf("Vamos agora cadastrar a carta 2:\n");
 
-    printf("Digite o código da cidade: ");
+    printf("Digite o código da carta: ");
     scanf("%s", carta2.codigo);
     printf("Digite o estado da cidade: ");
     scanf(" %c", &carta2.estado);
@@ -63,6 +69,9 @@ int main() {
     scanf("%f", &carta2.pib);
     printf("Digite o número de pontos turísticos da cidade: ");
     scanf("%d", &carta2.pontosTuristicos);
+    //calcular densidade populacional e pib per capita
+    carta2.densidadePopulacional = (float)carta2.populacao / carta2.area;
+    carta2.pibPerCapita = carta2.pib / carta2.populacao;
 
     printf("=============================\n");
     printf("Cadastro realizado com sucesso!\n");
@@ -73,7 +82,8 @@ int main() {
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
-    printf("Dados da carta 1:\n");
+    // Exibir os dados da carta 1
+    printf("Dados da Carta 1:\n");
     printf("Código: %s\n", carta1.codigo);
     printf("Estado: %c\n", carta1.estado);
     printf("Cidade: %s\n", carta1.cidade);
@@ -81,8 +91,11 @@ int main() {
     printf("Área: %.2f\n", carta1.area);
     printf("PIB: %.2f\n", carta1.pib);
     printf("Pontos Turísticos: %d\n", carta1.pontosTuristicos);
+    printf("Densidade Populacional: %.2f\n", carta1.densidadePopulacional);
+    printf("PIB Per Capita: %.2f\n", carta1.pibPerCapita);
     printf("=============================\n");
-    printf("Dados da carta 2:\n");
+    // Exibir os dados da carta 2
+    printf("Dados da Carta 2:\n");
     printf("Código: %s\n", carta2.codigo);
     printf("Estado: %c\n", carta2.estado);
     printf("Cidade: %s\n", carta2.cidade);
@@ -90,10 +103,11 @@ int main() {
     printf("Área: %.2f\n", carta2.area);
     printf("PIB: %.2f\n", carta2.pib);
     printf("Pontos Turísticos: %d\n", carta2.pontosTuristicos);
+    printf("Densidade Populacional: %.2f\n", carta2.densidadePopulacional);
+    printf("PIB Per Capita: %.2f\n", carta2.pibPerCapita);
     printf("=============================\n");
-
-    printf("Programa encerrado...\n");
-
+    
+    printf("Programa encerrado.\n");
 
     return 0;
 }
