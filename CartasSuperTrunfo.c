@@ -8,7 +8,7 @@ typedef struct {
     char codigo[5];
     char estado;
     char cidade[50];
-    int populacao;
+    unsigned long int populacao;
     int pontosTuristicos;
     float area;
     float pib;
