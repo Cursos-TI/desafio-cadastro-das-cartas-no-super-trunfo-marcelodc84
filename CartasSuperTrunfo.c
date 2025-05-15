@@ -62,6 +62,7 @@ void ExibirCarta(CartaCidade carta) {
     printf("Pontos Turísticos: %d\n", carta.pontosTuristicos);
     printf("Densidade Populacional: %.2f\n", carta.densidadePopulacional);
     printf("PIB Per Capita: %.2f\n", carta.pibPerCapita);
+    printf("Super Poder: %.2f\n", carta.superPoder);
 }
 
 //função para retornar o maior valor
