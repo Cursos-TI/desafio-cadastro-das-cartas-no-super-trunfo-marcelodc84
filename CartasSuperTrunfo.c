@@ -65,26 +65,26 @@ void ExibirCarta(CartaCidade carta) {
     printf("Super Poder: %.2f\n", carta.superPoder);
 }
 
-//função para retornar o maior valor
-char MaiorValor(int valor1, int valor2) {
-    if(valor1 > valor2) {
-        return "Carta 1 venceu (1)\n";
-    } else if(valor1 < valor2) {
-        return "Carta 2 venceu (0)\n";
-    } else {
-        return "Empate\n";
-    }
-}
-//função para retornar o menor valor
-char MenorValor(int valor1, int valor2) {
-    if(valor1 < valor2) {
-        return "Carta 1 venceu (1)\n";
-    } else if(valor1 > valor2) {
-        return "Carta 2 venceu (0)\n";
-    } else {
-        return "Empate\n";
-    }
-}
+// //função para retornar o maior valor
+// char MaiorValor(int valor1, int valor2) {
+//     if(valor1 > valor2) {
+//         return "Carta 1 venceu (1)\n";
+//     } else if(valor1 < valor2) {
+//         return "Carta 2 venceu (0)\n";
+//     } else {
+//         return "Empate\n";
+//     }
+// }
+// //função para retornar o menor valor
+// char MenorValor(int valor1, int valor2) {
+//     if(valor1 < valor2) {
+//         return "Carta 1 venceu (1)\n";
+//     } else if(valor1 > valor2) {
+//         return "Carta 2 venceu (0)\n";
+//     } else {
+//         return "Empate\n";
+//     }
+// }
 
 //comparação das cartas
 void CompararCartas(CartaCidade carta1, CartaCidade carta2) {
